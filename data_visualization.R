@@ -111,10 +111,11 @@ if (i == "-") {
   blueprint <- blueprint + geom_vline(data=tss_pos, aes(xintercept = V4), linetype = 2,size= 0.2, alpha= 0.4, color= '#666666')
   diff_species <- diff_species + geom_vline(data=tss_pos, aes(xintercept = V4), linetype = 2,size= 0.2, alpha= 0.4, color= '#666666')
 }
-print(blueprint)
-ggsave(paste(workdir, "final_plots/blueprint_", gene_name,"_", Sys.Date(),".png", sep = ""), width = 9, height = 6)
 
   }
+  print(blueprint)
+print(annotate_figure(blueprint,top = text_grob(paste(gene_name, " methylation percentage", sep = ""), color = "black", size = 12)))
+ggsave(paste(workdir, "final_plots/blueprint_", gene_name,"_", Sys.Date(),".png", sep = ""), width = 9, height = 6)
 ##
 ## Add tss
 ##
